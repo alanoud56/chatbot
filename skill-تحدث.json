@@ -1,0 +1,224 @@
+{
+  "intents": [
+    {
+      "intent": "استفسار",
+      "examples": [
+        {
+          "text": "الداتابيس ما تحفظ القيم"
+        },
+        {
+          "text": "السلايدز فيها مشكلة"
+        },
+        {
+          "text": "السلايدز ما تتحرك"
+        },
+        {
+          "text": "كيف اقدر اتواصل مع الدعم الفني"
+        },
+        {
+          "text": "لما اضغط حفظ ما يحفظ القيم"
+        },
+        {
+          "text": "لوحة التحكم ما تشتغل معي"
+        },
+        {
+          "text": "ما هو رقم الدعم الفني"
+        },
+        {
+          "text": "وش هو رقم الدعم الفني"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "ترحيب",
+      "examples": [
+        {
+          "text": "السلام عليكم"
+        },
+        {
+          "text": "الو"
+        },
+        {
+          "text": "الووو"
+        },
+        {
+          "text": "اهلا"
+        },
+        {
+          "text": "مرحبا"
+        },
+        {
+          "text": "هلو"
+        },
+        {
+          "text": "هيلو"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "وداع",
+      "examples": [
+        {
+          "text": "شكرا"
+        },
+        {
+          "text": "شكرا يعطيك العافية"
+        },
+        {
+          "text": "طيب"
+        }
+      ],
+      "description": ""
+    }
+  ],
+  "entities": [],
+  "metadata": {
+    "api_version": {
+      "major_version": "v2",
+      "minor_version": "2018-11-08"
+    }
+  },
+  "dialog_nodes": [
+    {
+      "type": "standard",
+      "title": "ترحيب",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "يا هلا شرفت و نورت كيف اقدر اخدمك"
+              },
+              {
+                "text": "يا مرحبا تفضل تقدر تسألني"
+              },
+              {
+                "text": " حياك الله ،ايش سؤالك"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "random"
+          }
+        ]
+      },
+      "conditions": "#ترحيب",
+      "dialog_node": "node_3_1625320787922",
+      "previous_sibling": "مرحبا"
+    },
+    {
+      "type": "standard",
+      "title": "استفسار",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "اكيد فيه شيء غلط تقدر تتواصل مع الدعم الفني و سامحنا ع القصور ❤️"
+              },
+              {
+                "text": "هذا هو رقم الدعم الفني 0555324678"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#استفسار",
+      "dialog_node": "node_4_1625321208152",
+      "previous_sibling": "node_3_1625320787922"
+    },
+    {
+      "type": "standard",
+      "title": "وداع",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "شكرا لك"
+              },
+              {
+                "text": "توصينا على شي"
+              },
+              {
+                "text": "نورتنا"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#وداع",
+      "dialog_node": "node_4_1625321568402",
+      "previous_sibling": "node_4_1625321208152"
+    },
+    {
+      "type": "standard",
+      "title": "أي شيء آخر",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "لم أفهم، يمكنك محاولة اعادة الصياغة"
+              },
+              {
+                "text": "هل يمكنك اعادة صياغة عبارتك؟ أنا لا فهم"
+              },
+              {
+                "text": "لم أفهم قصدك"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "anything_else",
+      "dialog_node": "أي شيء آخر",
+      "previous_sibling": "node_4_1625321568402",
+      "disambiguation_opt_out": true
+    },
+    {
+      "type": "standard",
+      "title": "مرحبا",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "يا هلا كيف اقدر اخدمك؟💕"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "welcome",
+      "dialog_node": "مرحبا"
+    }
+  ],
+  "counterexamples": [],
+  "system_settings": {
+    "disambiguation": {
+      "prompt": ":هل قصدت",
+      "enabled": true,
+      "randomize": true,
+      "max_suggestions": 5,
+      "suggestion_text_policy": "title",
+      "none_of_the_above_prompt": "كل ما سبق خطأ"
+    },
+    "human_agent_assist": {
+      "prompt": ":هل قصدت"
+    }
+  },
+  "learning_opt_out": false,
+  "name": "تحدث",
+  "language": "ar",
+  "description": ""
+}
